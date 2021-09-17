@@ -1,3 +1,6 @@
+zahl = input("Wie viel?")
+zahl = int(zahl)
+
 def rekursive(zahl):
     if zahl == 0:
         return 0
@@ -6,4 +9,4 @@ def rekursive(zahl):
     else:
         return rekursive(zahl -1) + rekursive(zahl -2)
     
-print(rekursive(10))
+print(rekursive(zahl))

@@ -1,15 +1,23 @@
-random_Num = input("Gib dem Script eine Zahl zum Raten.")
+random_Num = input("Gib dem Script eine Zahl zum Raten. Zwischen 0 und 100: ")
 random_Num = int(random_Num)
 
-num_Cracked = False
+range = [-1, 101]
 
 def raten():
-    zahl = 0
-    while(num_Cracked == False):
+    zahl = 50
+    tries = 1
+    while(True):
+        print("Ich rate:", zahl)
         if zahl == random_Num:
             print("Der Script hat die Zahl erraten. Es war: ", zahl)
             break
-        zahl += 1
-        print("Ich rate:", zahl)
+        elif zahl < random_Num:
+            range[0] = zahl
+            zahl = round(sum(range) / 2)
+        elif zahl > random_Num:
+            range[1] = zahl
+            zahl = round(sum(range)  / 2)
+        tries += 1
+    print(f"Ich habe {tries} versuche gebraucht!")
         
 raten()

@@ -11,7 +11,13 @@ while(tries_Left > 0):
     
     tries_Left -= 1
     
-    if zahl == random_num:
+    if zahl > random_num:
+        print("Die gesuchte Zahl ist kleiner!")
+        
+    elif zahl < random_num:
+        print("Die gesuchte Zahl ist größer!")
+        
+    elif zahl == random_num:
         print("Gewonnen!")
         break
     else:
