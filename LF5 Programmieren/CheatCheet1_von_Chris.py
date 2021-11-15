@@ -90,6 +90,15 @@ name = "Christian"
 greeting = f"How are you, {name}?"
 
 """
+String spliting
+"""
+
+input = "24.06.2021 Deutsch"
+date, fach = input.split(" ", 1) #date == "24.06.2021" | fach == "Deutsch"
+day,month,year = date.split(".", 2) #day == "24" | month == "06" | year == "2021"
+
+
+"""
 Zahlen können nicht direkt in einen String eingebunden werden.
 Um eine Zahl einzubinden muss str() verwendet werden oder ein f_string
 """
