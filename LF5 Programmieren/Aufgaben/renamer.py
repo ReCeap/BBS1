@@ -1,12 +1,15 @@
 import os
 
-folderpath = r"C:\Users\admin\Documents\Schule\BBS1\LF5 Programmieren\Aufgaben"
+folderpath = r"C:\Users\ReGul4r\Desktop\ranks\old"
 
 filepath = (os.path.join(root, filename)
             for root , _, filenames in os.walk(folderpath)
             for filename in filenames)
 
+a=0
+
 for path in filepath:
-    newname = path.replace("K9_", "")
+    newname = "gold" + str(a)+".png"
+    a+=1
     if newname != path:
         os.rename(path, newname)
