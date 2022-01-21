@@ -9,7 +9,6 @@ def sortieren_newlist(liste):
     return returnlist
 
 print(sortieren_newlist(list))
-print(list)
 
 def umsortierung(liste):
     l=liste.copy()
@@ -20,4 +19,3 @@ def umsortierung(liste):
     return l
 
 print(umsortierung(list))
-print(list)
