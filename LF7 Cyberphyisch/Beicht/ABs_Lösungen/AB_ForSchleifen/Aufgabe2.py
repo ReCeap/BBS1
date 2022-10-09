@@ -1,0 +1,1 @@
+for i in range(int(input("Wie oft willst du begrüßt werden?"))): print("Hallo")

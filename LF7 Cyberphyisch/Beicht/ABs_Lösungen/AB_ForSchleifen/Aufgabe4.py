@@ -1,0 +1,1 @@
+for i in range(int(input("Gib eine natürliche zahl ein.")), 0, -1): print(i)
