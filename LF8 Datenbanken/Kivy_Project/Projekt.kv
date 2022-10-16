@@ -1,7 +1,42 @@
-MainWidget:
+MainLayout:
 
-<MainWidget>:
-    Button:
-        text: "Hey"#
-        size: "100dp", "75dp"
-        pos: "100dp", "0dp"
+<MainLayout>:
+    orientation: "vertical"
+    StackLayout:
+        height: "40dp"
+        size_hint: 1, None
+        spacing: "10dp"
+        Button:
+            text: "Datei"
+            size_hint: 0.1, 1
+        Button:
+            text: "Datenbank"
+            size_hint: 0.1, 1
+        Button:
+            text: "Hilfe"
+            size_hint: 0.1, 1
+            
+
+    BoxLayout:
+        BoxLayout:
+            orientation: "vertical"
+            Label:
+                text: "Hier ist dann das Info Fenster"
+            Label:
+                text: "Hier ist noch ein Fenster"
+
+        GridLayout:
+            cols: 3
+            size_hint: 0.5, 1
+            Button:
+                text: "Buttons"
+            Button:
+                text: "Buttons"
+            Button:
+                text: "Buttons"
+            Button:
+                text: "Buttons"
+            Button:
+                text: "Buttons"
+            Button:
+                text: "Buttons"
