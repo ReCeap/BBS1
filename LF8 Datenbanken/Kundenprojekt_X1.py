@@ -11,6 +11,33 @@ dbconfig = {
 
 mydb = mysql.connector.connect(**dbconfig)
 
+#    _____ _   _ _____ _______   _____  ____  
+#   |_   _| \ | |_   _|__   __| |  __ \|  _ \ 
+#     | | |  \| | | |    | |    | |  | | |_) |
+#     | | | . ` | | |    | |    | |  | |  _ < 
+#    _| |_| |\  |_| |_   | |    | |__| | |_) |
+#   |_____|_| \_|_____|  |_|    |_____/|____/ 
+
+def init_db():
+  #Make sure to reconnect to the database and refresh it
+  mydb.reconnect()
+  cursor = mydb.cursor()
+  mydb.commit()
+  
+  #Create Table Abteilung
+  cursor.execute("CREATE TABLE IF NOT EXISTS `Abteilungen` (`AbteilungsID` INT NOT NULL AUTO_INCREMENT, `AbteilungsName` TEXT(255) NOT NULL, `Gebühren` FLOAT NOT NULL, PRIMARY KEY (`AbteilungsID`));")
+
+  #Create Table eingeschrieben
+  cursor.execute("CREATE TABLE IF NOT EXISTS `eingeschrieben` (`AbteilungsID` INT NOT NULL, `UserID` INT NOT NULL);")
+  
+  #Create Table Mitglied
+  cursor.execute("CREATE TABLE IF NOT EXISTS `Mitglied` (`UserID` INT NOT NULL AUTO_INCREMENT,`Geburtstag` DATE NOT NULL,`Vorname` TEXT NOT NULL,`Nachname` TEXT NOT NULL,PRIMARY KEY (`UserID`));")
+
+  #Create Table Teilnahme
+  cursor.execute("CREATE TABLE IF NOT EXISTS `Teilnahme` (`TeilnahmeID` INT NOT NULL AUTO_INCREMENT,`UserID` INT NOT NULL,`Datum` DATE NOT NULL,PRIMARY KEY (`TeilnahmeID`));")
+  
+  mydb.commit()
+
 #    ______          _       _ _            
 #   |  ____|        | |     | | |           
 #   | |__   _ __ ___| |_ ___| | | ___ _ __  
