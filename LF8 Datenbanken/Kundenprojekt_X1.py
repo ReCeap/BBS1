@@ -22,7 +22,6 @@ def init_db():
   #Make sure to reconnect to the database and refresh it
   mydb.reconnect()
   cursor = mydb.cursor()
-  mydb.commit()
   
   #Create Table Abteilung
   cursor.execute("CREATE TABLE IF NOT EXISTS `Abteilungen` (`AbteilungsID` INT NOT NULL AUTO_INCREMENT, `AbteilungsName` TEXT(255) NOT NULL, `Gebühren` FLOAT NOT NULL, PRIMARY KEY (`AbteilungsID`));")
@@ -49,7 +48,6 @@ def create_mitglied(geburtstag: datetime, name):
   #Make sure to reconnect to the database and refresh it
   mydb.reconnect()
   cursor = mydb.cursor()
-  mydb.commit()
   
   #Get the next UserID from AUTO_INCREMENT
   cursor.execute("SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_NAME = 'Mitglied'")
@@ -69,7 +67,6 @@ def create_teilnahme(UserID, datum):
   #Make sure to reconnect to the database and refresh it
   mydb.reconnect()
   cursor = mydb.cursor()
-  mydb.commit()
   
   #Create a new Teilnahme in the database
   sql = "INSERT INTO `Teilnahme` (`UserID`, `Datum`) VALUES (%s, %s)"
@@ -83,7 +80,6 @@ def create_abteilung(name, gebuehren):
   #Make sure to reconnect to the database and refresh it
   mydb.reconnect()
   cursor = mydb.cursor()
-  mydb.commit()
   
   #Get the next AbteilungsID from AUTO_INCREMENT
   cursor.execute("SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_NAME = 'Abteilungen'")
@@ -112,7 +108,6 @@ def add_mitglied_to_abteilung(UserID, AbteilungsID):
   #Make sure to reconnect to the database and refresh it
   mydb.reconnect()
   cursor = mydb.cursor()
-  mydb.commit()
   
   #Add a user to an abteilung
   sql = "INSERT INTO `eingeschrieben` (`UserID`, `AbteilungsID`) VALUES (%s, %s)"
@@ -139,7 +134,6 @@ def add_mitglied_to_abteilung(UserID, AbteilungsID):
 def check_for_geburtstag():
   mydb.reconnect()
   cursor = mydb.cursor()
-  mydb.commit()
 
   sql = "SELECT `Name`, `Geburtstag` FROM `Mitglied` WHERE Geburtstag = %s"
   values = [datetime.date.today()]
